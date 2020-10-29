@@ -1,28 +1,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>lnran`s Blog on lnran`s Blog</title>
-    <link>https://lnran.github.io/</link>
+    <link>https://lnran.com/</link>
     <description>Recent content in lnran`s Blog on lnran`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 29 Oct 2020 15:53:22 +0800</lastBuildDate>
-    <atom:link href="https://lnran.github.io/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lnran.com/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Posts</title>
-      <link>https://lnran.github.io/post/</link>
+      <link>https://lnran.com/post/</link>
       <pubDate>Thu, 29 Oct 2020 15:53:22 +0800</pubDate>
       
-      <guid>https://lnran.github.io/post/</guid>
+      <guid>https://lnran.com/post/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lnran</title>
-      <link>https://lnran.github.io/about/</link>
+      <link>https://lnran.com/about/</link>
       <pubDate>Thu, 29 Oct 2020 00:06:47 +0800</pubDate>
       
-      <guid>https://lnran.github.io/about/</guid>
+      <guid>https://lnran.com/about/</guid>
       <description>&lt;p&gt;Contact me:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
