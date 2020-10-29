@@ -293,6 +293,7 @@ system(<span style="color:#e6db74">&#34;pause&#34;</span>);
                 <div id="gitalk-container"></div>
 <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.css">
 <script src="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.js"></script>
+<script src="/js/src/md5.min.js"></script>
 <script>
     const gitalk = new Gitalk({
 
@@ -301,7 +302,7 @@ system(<span style="color:#e6db74">&#34;pause&#34;</span>);
         repo: 'lnran.github.io',
         owner: 'lnran',
         admin: ['lnran'],
-        id: location.pathname, 
+        id: md5(location.pathname), 
         distractionFreeMode: false 
     });
     (function () {
