@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on lnran`s Blog</title>
+    <link>https://lnran.com/post/</link>
+    <description>Recent content in Posts on lnran`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 29 Oct 2020 15:53:22 +0800</lastBuildDate><atom:link href="https://lnran.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux压缩解压缩命令</title>
+      <link>https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 29 Oct 2020 15:53:22 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</guid>
+      <description>tar命令 解包：tar zxvf FileName.tar 打包：tar czvf FileName.tar DirName gz命令 解压1：gunzip FileName.gz 解压2：gzip -d FileName.gz 压缩：gzip FileName .tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz 压缩：t</description>
+    </item>
+    
+    <item>
+      <title>直接插入排序</title>
+      <link>https://lnran.com/post/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Thu, 29 Oct 2020 15:45:52 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;基本思想：排序方式就像许多人排序扑克牌一样。开始的时候左手为空的并且桌子上的牌牌面朝下，然后我们依次从桌面上拿走一张牌（是牌堆顶部的那张牌）并从右到左的与已在左手中的每张牌进行比较，然后插入的相应的位置，使左手的牌总是排好序的。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>快速排序</title>
+      <link>https://lnran.com/post/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Thu, 29 Oct 2020 15:44:08 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</guid>
+      <description>基本思想：与归并排序一样，快速排序也采用了分治法。将原问题分解成几个规模较小但类似于原问题的子问题，递归地求解这些子问题，然后再合并这些子问</description>
+    </item>
+    
+    <item>
+      <title>桶排序</title>
+      <link>https://lnran.com/post/%E6%A1%B6%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Thu, 29 Oct 2020 15:39:25 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/%E6%A1%B6%E6%8E%92%E5%BA%8F/</guid>
+      <description>基本思想：桶排序将一个区间划分为N个相同大小的子区间，也就是桶。然后将输入数分别放到各个桶中。为了得到输出结果，先对每个桶中的数进行排序，然</description>
+    </item>
+    
+    <item>
+      <title>堆排序</title>
+      <link>https://lnran.com/post/%E5%A0%86%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Thu, 29 Oct 2020 14:34:43 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/%E5%A0%86%E6%8E%92%E5%BA%8F/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;基本思想：①把一个数组A构造成一个二叉最大堆，
+②然后交换下标为0和下标为A-1的值，且每次heap_size - - ，
+③然后再调整该堆为最大堆。最后循环执行②③，直至heap_size有效元素为1，堆排序算法结束。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://lnran.com/post/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lnran.com/post/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>https://lnran.com/post/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lnran.com/post/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

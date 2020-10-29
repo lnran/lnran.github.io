@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="lnran">
+    
+    
+    
+    <link rel="prev" href="https://lnran.com/post/%E5%A0%86%E6%8E%92%E5%BA%8F/" />
+    <link rel="next" href="https://lnran.com/post/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" />
+    <link rel="canonical" href="https://lnran.com/post/%E6%A1%B6%E6%8E%92%E5%BA%8F/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            桶排序 | lnran`s Blog
+        
+    </title>
+    <meta name="title" content="桶排序 | lnran`s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/lnran.com"
+    },
+    "articleSection" : "post",
+    "name" : "桶排序",
+    "headline" : "桶排序",
+    "description" : "基本思想：桶排序将一个区间划分为N个相同大小的子区间，也就是桶。然后将输入数分别放到各个桶中。为了得到输出结果，先对每个桶中的数进行排序，然",
+    "inLanguage" : "zh-cn",
+    "author" : "lnran",
+    "creator" : "lnran",
+    "publisher": "lnran",
+    "accountablePerson" : "lnran",
+    "copyrightHolder" : "lnran",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-10-29 15:39:25 \u002b0800 CST",
+    "dateModified" : "2020-10-29 15:39:25 \u002b0800 CST",
+    "url" : "https:\/\/lnran.com\/post\/%E6%A1%B6%E6%8E%92%E5%BA%8F\/",
+    "wordCount" : "532",
+    "keywords" : [ "排序", "lnran`s Blog"]
+}
+</script>
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://lnran.com">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://lnran.com">lnran`s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/posts/" title="">
+                            <h3>Blog</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/categories/" title="">
+                            <h3>Categories</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/tags/" title="">
+                            <h3>Tags</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/about/" title="">
+                            <h3>About</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">桶排序</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://lnran.com" rel="author">lnran</a> with ♥
+                <span class="post-time">
+                on <time datetime=2020-10-29 itemprop="datePublished">October 29, 2020</time>
+                </span>
+                in
+                
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://lnran.com/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"> 排序算法, </a>
+                        
+                        
+                </span>
+                <span class="post-word-count">532 words</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        
+
+        
+        
+            
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>基本思想：桶排序将一个区间划分为N个相同大小的子区间，也就是桶。然后将输入数分别放到各个桶中。为了得到输出结果，先对每个桶中的数进行排序，然后遍历每个桶，按照次序把各个桶中的元素列出来即可。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/wQB4JvM.png" alt="alt 桶排序" loading="lazy" ></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#f92672">----------</span>
+<span style="color:#75715e">/*排序算法：桶排序
+</span><span style="color:#75715e">时   间：2018年1月16日
+</span><span style="color:#75715e">时间复杂度：O(n + k)
+</span><span style="color:#75715e">空间复杂度：O(n + k)
+</span><span style="color:#75715e">稳  定  性：稳定
+</span><span style="color:#75715e">by Ingran*/</span>
+<span style="color:#f92672">----------</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;time.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Bucket_Node
+{
+    <span style="color:#66d9ef">int</span> date;
+    <span style="color:#66d9ef">struct</span> Bucket_Node <span style="color:#f92672">*</span>Next;
+}Node;
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Free_List</span>(Node <span style="color:#f92672">*</span>head)
+{
+    Node <span style="color:#f92672">*</span>N <span style="color:#f92672">=</span> head;
+    <span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL)
+    {
+        N <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>Next;
+        delete head;
+        head <span style="color:#f92672">=</span> N;
+    }
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Bucket_Sort</span>(<span style="color:#66d9ef">int</span> A[], <span style="color:#66d9ef">int</span> len)
+{
+    Node <span style="color:#f92672">*</span>Bucket[<span style="color:#ae81ff">10</span>] <span style="color:#f92672">=</span> { <span style="color:#ae81ff">0</span> };<span style="color:#75715e">//初始化十个空桶
+</span><span style="color:#75715e"></span>    Node <span style="color:#f92672">*</span>temp <span style="color:#f92672">=</span> NULL, <span style="color:#f92672">*</span>pre_temp <span style="color:#f92672">=</span> NULL;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> len; i<span style="color:#f92672">++</span>)
+    {
+        <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> A[i] <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>;
+        <span style="color:#66d9ef">if</span> (Bucket[a] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)<span style="color:#75715e">//把数据放入空桶中
+</span><span style="color:#75715e"></span>        {
+            Bucket[a] <span style="color:#f92672">=</span> new Node;
+            Bucket[a]<span style="color:#f92672">-&gt;</span>date <span style="color:#f92672">=</span> A[i];
+            Bucket[a]<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> NULL;
+        }
+        <span style="color:#66d9ef">else</span>                       <span style="color:#75715e">//对非空链表(非空桶)插入排序
+</span><span style="color:#75715e"></span>        {
+            pre_temp <span style="color:#f92672">=</span> temp <span style="color:#f92672">=</span> Bucket[a];
+            <span style="color:#66d9ef">while</span> (A[i] <span style="color:#f92672">&gt;</span> temp<span style="color:#f92672">-&gt;</span>date)<span style="color:#75715e">//比较数组中的元素与桶中元素的大小
+</span><span style="color:#75715e"></span>            {
+                pre_temp <span style="color:#f92672">=</span> temp;
+                temp <span style="color:#f92672">=</span> temp<span style="color:#f92672">-&gt;</span>Next;
+                <span style="color:#66d9ef">if</span> (temp <span style="color:#f92672">==</span> NULL)
+                    <span style="color:#66d9ef">break</span>;
+            }
+            <span style="color:#66d9ef">if</span> (temp <span style="color:#f92672">==</span> NULL)<span style="color:#75715e">//插入到最后的位置
+</span><span style="color:#75715e"></span>            {
+                temp <span style="color:#f92672">=</span> new Node;
+                temp<span style="color:#f92672">-&gt;</span>date <span style="color:#f92672">=</span> A[i];
+                temp<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> NULL;
+                pre_temp<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> temp;
+            }
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (temp <span style="color:#f92672">==</span> Bucket[a])<span style="color:#75715e">//插入到第一个位置
+</span><span style="color:#75715e"></span>            {
+                temp <span style="color:#f92672">=</span> new Node;
+                temp<span style="color:#f92672">-&gt;</span>date <span style="color:#f92672">=</span> A[i];
+                temp<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> Bucket[a];
+                Bucket[a] <span style="color:#f92672">=</span> temp;
+            }
+            <span style="color:#66d9ef">else</span>                 <span style="color:#75715e">//插入到中间
+</span><span style="color:#75715e"></span>            {
+                temp <span style="color:#f92672">=</span> new Node;
+                temp<span style="color:#f92672">-&gt;</span>date <span style="color:#f92672">=</span> A[i];
+                temp<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> pre_temp<span style="color:#f92672">-&gt;</span>Next;
+                pre_temp<span style="color:#f92672">-&gt;</span>Next <span style="color:#f92672">=</span> temp;
+            }
+        }
+    }
+    Node <span style="color:#f92672">*</span>Input <span style="color:#f92672">=</span> NULL;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
+    {
+        Input <span style="color:#f92672">=</span> Bucket[i];
+        <span style="color:#66d9ef">while</span> (Input <span style="color:#f92672">!=</span> NULL)
+        {
+            std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> Input<span style="color:#f92672">-&gt;</span>date<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;  &#34;</span>;
+            Input <span style="color:#f92672">=</span> Input<span style="color:#f92672">-&gt;</span>Next;
+        }
+        Free_List(Bucket[i]);
+        
+    }
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+    <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>a <span style="color:#f92672">=</span> nullptr;
+    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    srand((<span style="color:#66d9ef">unsigned</span>)time(NULL));
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;请输入随机数的个数：&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> n;
+    a <span style="color:#f92672">=</span> new <span style="color:#66d9ef">int</span>[n];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>)
+    {
+        a[i] <span style="color:#f92672">=</span> rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">1001</span>;
+        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> a[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;  &#34;</span>;
+    }
+    
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    Bucket_Sort(a, n);
+    system(<span style="color:#e6db74">&#34;pause&#34;</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>lnran </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://lnran.com/post/%E6%A1%B6%E6%8E%92%E5%BA%8F/>https://lnran.com/post/%E6%A1%B6%E6%8E%92%E5%BA%8F/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://lnran.com/tags/%E6%8E%92%E5%BA%8F/">
+                    #排序</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://lnran.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://lnran.com/post/%E5%A0%86%E6%8E%92%E5%BA%8F/" class="prev" rel="prev" title="堆排序"><i class="iconfont icon-left"></i>&nbsp;堆排序</a>
+        
+        
+        <a href="https://lnran.com/post/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="next" rel="next" title="快速排序">快速排序&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+            
+                <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.css">
+<script src="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+
+        clientID: '418cc9a77ed5ded8be4a',
+        clientSecret: '6b51155ecc2b91bee4609af31abd137fb3fdc8fb',
+        repo: 'https:\/\/lnran.com',
+        owner: 'lnran',
+        admin: ['lnran'],
+        id: location.pathname, 
+        distractionFreeMode: false 
+    });
+    (function () {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i>
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://lnran.com">lnran</a> | </span>
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+
+        </div>
+    </body>
+</html>

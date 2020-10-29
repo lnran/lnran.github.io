@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on lnran`s Blog</title>
+    <link>https://lnran.com/categories/</link>
+    <description>Recent content in Categories on lnran`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 29 Oct 2020 15:53:22 +0800</lastBuildDate><atom:link href="https://lnran.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://lnran.com/categories/linux/</link>
+      <pubDate>Thu, 29 Oct 2020 15:53:22 +0800</pubDate>
+      
+      <guid>https://lnran.com/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>排序算法</title>
+      <link>https://lnran.com/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 29 Oct 2020 15:45:52 +0800</pubDate>
+      
+      <guid>https://lnran.com/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Others</title>
+      <link>https://lnran.com/categories/others/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://lnran.com/categories/others/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

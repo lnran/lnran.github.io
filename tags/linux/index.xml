@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on lnran`s Blog</title>
+    <link>https://lnran.com/tags/linux/</link>
+    <description>Recent content in Linux on lnran`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 29 Oct 2020 15:53:22 +0800</lastBuildDate><atom:link href="https://lnran.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux压缩解压缩命令</title>
+      <link>https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 29 Oct 2020 15:53:22 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</guid>
+      <description>tar命令 解包：tar zxvf FileName.tar 打包：tar czvf FileName.tar DirName gz命令 解压1：gunzip FileName.gz 解压2：gzip -d FileName.gz 压缩：gzip FileName .tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz 压缩：t</description>
+    </item>
+    
+  </channel>
+</rss>
