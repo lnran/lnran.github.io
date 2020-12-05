@@ -56,7 +56,7 @@
     "datePublished": "2020-10-29 15:53:22 \u002b0800 CST",
     "dateModified" : "2020-10-29 15:53:22 \u002b0800 CST",
     "url" : "https:\/\/lnran.com\/post\/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4\/",
-    "wordCount" : "1092",
+    "wordCount" : "1057",
     "keywords" : [ "Linux", "lnran`s Blog"]
 }
 </script>
@@ -163,7 +163,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">1092 words</span>
+                <span class="post-word-count">1057 words</span>
         </div>
     </header>
 
@@ -248,49 +248,55 @@ zip命令
 　　解压：unzip FileName.zip
  
 　　压缩：zip -r FileName.zip DirName
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">	gzip和bzip2
-	不能压缩目录，只能一个一个文件进行压缩，压缩之后会使原文件消失
-	gzip *    压缩当前目录下所有的文件, 但是目录不能压缩
-	gunzip *  解压当前目录下所有的.gz文件
-	bzip2 *   压缩当前目录下所有的文件, 但是目录不能压缩
-	bunzip2 * 解压当前目录下所有的. bz2文件
-	tar工具
-	相关参数说明
-	z：用gzip来压缩/解压缩文件
-	j：用bzip2来压缩/解压缩文件
-	c：create, 创建新的压缩文件, 与x互斥使用
-	x：从压缩文件中释放文件, 与c互斥使用
-	v：详细报告tar处理的文件信息
-	f：指定压缩文件的名字
-	t:  查看压缩包中有哪些文件
-	压缩：
-	tar cvf 压缩包名字.tar 原材料[要打包压缩的文件或目录]
-	tar zcvf 压缩包名字.tar.gz 原材料[要打包压缩的文件或目录]
-	tar jcvf 压缩包名字.tar.bz2 原材料[要打包压缩的文件或目录]
-	解压缩：
-	tar  xvf   已有的压缩包（test.tar.gz）
-	tar  zxvf  已有的压缩包（test.tar.gz）
-	tar  jxvf  已有的压缩包（test.tar.bz2）
-	解压到指定目录：添加参数 -C（大写）
-	tar zxvf test.tar.gz -C 解压目录（./mytest）
-	查看压缩包中有哪些文件
-	tar -tvf test.tar
-	rar工具
-	使用前需要安装 rar 工具
-	sudo apt-get install rar
-	压缩：
-	命令： rar a -r 要压缩的文件(含文件或者目录)
-	压缩目录需要使用参数：-r
-rar a -r my aa bb dir  ----将aa bb dir压缩到my.rar文件中
+</code></pre></div><blockquote>
+<p>gzip和bzip2</p>
+</blockquote>
+<pre><code>	不能压缩目录，只能一个一个文件进行压缩，压缩之后会使原文件消失
+	gzip *    压缩当前目录下所有的文件, 但是目录不能压缩
+	gunzip *  解压当前目录下所有的.gz文件
+	bzip2 *   压缩当前目录下所有的文件, 但是目录不能压缩
+	bunzip2 * 解压当前目录下所有的. bz2文件
+</code></pre><blockquote>
+<p>tar工具</p>
+</blockquote>
+<pre><code>	相关参数说明
+	z：用gzip来压缩/解压缩文件
+	j：用bzip2来压缩/解压缩文件
+	c：create, 创建新的压缩文件, 与x互斥使用
+	x：从压缩文件中释放文件, 与c互斥使用
+	v：详细报告tar处理的文件信息
+	f：指定压缩文件的名字
+	t:  查看压缩包中有哪些文件
+压缩：
+	tar cvf 压缩包名字.tar 原材料[要打包压缩的文件或目录]
+	tar zcvf 压缩包名字.tar.gz 原材料[要打包压缩的文件或目录]
+	tar jcvf 压缩包名字.tar.bz2 原材料[要打包压缩的文件或目录]
+解压缩：
+	tar  xvf   已有的压缩包（test.tar.gz）
+	tar  zxvf  已有的压缩包（test.tar.gz）
+	tar  jxvf  已有的压缩包（test.tar.bz2）
+解压到指定目录：添加参数 -C（大写）
+	tar zxvf test.tar.gz -C 解压目录（./mytest）
+查看压缩包中有哪些文件
+	tar -tvf test.tar
+</code></pre><blockquote>
+<p>rar工具</p>
+</blockquote>
+<pre><code>	使用前需要安装 rar 工具
+	sudo apt-get install rar
+压缩：
+	命令： rar a -r 要压缩的文件(含文件或者目录)
+压缩目录需要使用参数：-r
+	rar a -r my aa bb dir  ----将aa bb dir压缩到my.rar文件中
 	打包的生成的新文件不需要指定后缀
-	解压缩：
+解压缩：
 	命令：rar x xxx.rar 压缩目录
-rar x my.rar  ----将my.rar解压到当前目录
-	解压到指定目录, 直接指定解压目录即可
+	rar x my.rar  ----将my.rar解压到当前目录
+解压到指定目录, 直接指定解压目录即可
 	rar x xxx.rar目录
-rar x my.rar TAR  -----将my.rar解压到TAR目录下
-				注意：若解压目录不存在则会报错
-	zip工具
+	rar x my.rar TAR  -----将my.rar解压到TAR目录下
+	注意：若解压目录不存在则会报错
+</code></pre><pre><code>&gt; zip工具
 	压缩：zip -r 压缩包名 要压缩的文件(含文件或目录)
 	压缩目录需要使用参数-r
 	使用该命令不需要指定压缩包后缀
@@ -300,7 +306,7 @@ zip -r xxx file dir ---生成xxx.zip文件
 	unzip xxx.zip -d /home/itcast/test/day1
 注意：解压目录若不存在则会创建．
 
-</code></pre></div>
+</code></pre>
     </div>
 
     <div class="post-copyright">

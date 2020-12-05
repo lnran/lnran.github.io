@@ -6,7 +6,16 @@
     <description>Recent content in Others on lnran`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://lnran.com/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://lnran.com/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git文章</title>
+      <link>https://lnran.com/post/blog-instruction/</link>
+      <pubDate>Sat, 05 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lnran.com/post/blog-instruction/</guid>
+      <description>git add -A git commit -m &amp;ldquo;first commit&amp;rdquo; git push -u origin master (-f)</description>
+    </item>
+    
     <item>
       <title>Markdown Syntax Guide</title>
       <link>https://lnran.com/post/markdown-syntax/</link>
