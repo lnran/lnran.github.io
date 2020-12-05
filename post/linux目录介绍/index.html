@@ -9,9 +9,9 @@
     
     
     
-    <link rel="prev" href="https://lnran.com/post/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" />
-    <link rel="next" href="https://lnran.com/post/linux%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/" />
-    <link rel="canonical" href="https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/" />
+    <link rel="prev" href="https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/" />
+    
+    <link rel="canonical" href="https://lnran.com/post/linux%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
     <title>
         
         
-            Linux压缩解压缩命令 | lnran`s Blog
+            Linux目录介绍 | lnran`s Blog
         
     </title>
-    <meta name="title" content="Linux压缩解压缩命令 | lnran`s Blog">
+    <meta name="title" content="Linux目录介绍 | lnran`s Blog">
     
 <link rel="stylesheet" href="/css/main.min.css">
 
@@ -43,9 +43,9 @@
          "@id": "https:\/\/lnran.com\/"
     },
     "articleSection" : "post",
-    "name" : "Linux压缩解压缩命令",
-    "headline" : "Linux压缩解压缩命令",
-    "description" : "tar命令 解包：tar zxvf FileName.tar 打包：tar czvf FileName.tar DirName gz命令 解压1：gunzip FileName.gz 解压2：gzip -d FileName.gz 压缩：gzip FileName .tar.gz 和 .tgz 解压：tar zxvf FileName.tar.gz 压缩：t",
+    "name" : "Linux目录介绍",
+    "headline" : "Linux目录介绍",
+    "description" : "\u003cblockquote\u003e\n\u003cp\u003elinux下主要目录介绍\u003c\/p\u003e\n\u003c\/blockquote\u003e",
     "inLanguage" : "zh-cn",
     "author" : "lnran",
     "creator" : "lnran",
@@ -53,10 +53,10 @@
     "accountablePerson" : "lnran",
     "copyrightHolder" : "lnran",
     "copyrightYear" : "2020",
-    "datePublished": "2020-10-29 15:53:22 \u002b0800 CST",
-    "dateModified" : "2020-10-29 15:53:22 \u002b0800 CST",
-    "url" : "https:\/\/lnran.com\/post\/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4\/",
-    "wordCount" : "1092",
+    "datePublished": "2020-11-30 15:45:52 \u002b0800 CST",
+    "dateModified" : "2020-11-30 15:45:52 \u002b0800 CST",
+    "url" : "https:\/\/lnran.com\/post\/linux%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D\/",
+    "wordCount" : "601",
     "keywords" : [ "Linux", "lnran`s Blog"]
 }
 </script>
@@ -146,11 +146,11 @@
                     
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Linux压缩解压缩命令</h1>
+        <h1 class="post-title" itemprop="name headline">Linux目录介绍</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://lnran.com/" rel="author">lnran</a> with ♥
                 <span class="post-time">
-                on <time datetime=2020-10-29 itemprop="datePublished">October 29, 2020</time>
+                on <time datetime=2020-11-30 itemprop="datePublished">November 30, 2020</time>
                 </span>
                 in
                 
@@ -163,7 +163,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">1092 words</span>
+                <span class="post-word-count">601 words</span>
         </div>
     </header>
 
@@ -183,122 +183,39 @@
         
         
 
-        <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">tar命令
- 
-　　解包：tar zxvf FileName.tar
- 
-　　打包：tar czvf FileName.tar DirName
- 
-gz命令
- 
-　　解压1：gunzip FileName.gz
- 
-　　解压2：gzip -d FileName.gz
- 
-　　压缩：gzip FileName
- 
-　　.tar.gz 和 .tgz
- 
-　　解压：tar zxvf FileName.tar.gz
- 
-　　压缩：tar zcvf FileName.tar.gz DirName
- 
-   压缩多个文件：tar zcvf FileName.tar.gz DirName1 DirName2 DirName3 ...
- 
-bz2命令
- 
-　　解压1：bzip2 -d FileName.bz2
- 
-　　解压2：bunzip2 FileName.bz2
- 
-　　压缩： bzip2 -z FileName
- 
-　　.tar.bz2
- 
-　　解压：tar jxvf FileName.tar.bz2
- 
-　　压缩：tar jcvf FileName.tar.bz2 DirName
- 
-bz命令
- 
-　　解压1：bzip2 -d FileName.bz
- 
-　　解压2：bunzip2 FileName.bz
- 
-　　压缩：未知
- 
-　　.tar.bz
- 
-　　解压：tar jxvf FileName.tar.bz
- 
-Z命令
- 
-　　解压：uncompress FileName.Z
- 
-　　压缩：compress FileName
-
-　　.tar.Z
- 
-　　解压：tar Zxvf FileName.tar.Z
- 
-　　压缩：tar Zcvf FileName.tar.Z DirName
- 
-zip命令
- 
-　　解压：unzip FileName.zip
- 
-　　压缩：zip -r FileName.zip DirName
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">	gzip和bzip2
-	不能压缩目录，只能一个一个文件进行压缩，压缩之后会使原文件消失
-	gzip *    压缩当前目录下所有的文件, 但是目录不能压缩
-	gunzip *  解压当前目录下所有的.gz文件
-	bzip2 *   压缩当前目录下所有的文件, 但是目录不能压缩
-	bunzip2 * 解压当前目录下所有的. bz2文件
-	tar工具
-	相关参数说明
-	z：用gzip来压缩/解压缩文件
-	j：用bzip2来压缩/解压缩文件
-	c：create, 创建新的压缩文件, 与x互斥使用
-	x：从压缩文件中释放文件, 与c互斥使用
-	v：详细报告tar处理的文件信息
-	f：指定压缩文件的名字
-	t:  查看压缩包中有哪些文件
-	压缩：
-	tar cvf 压缩包名字.tar 原材料[要打包压缩的文件或目录]
-	tar zcvf 压缩包名字.tar.gz 原材料[要打包压缩的文件或目录]
-	tar jcvf 压缩包名字.tar.bz2 原材料[要打包压缩的文件或目录]
-	解压缩：
-	tar  xvf   已有的压缩包（test.tar.gz）
-	tar  zxvf  已有的压缩包（test.tar.gz）
-	tar  jxvf  已有的压缩包（test.tar.bz2）
-	解压到指定目录：添加参数 -C（大写）
-	tar zxvf test.tar.gz -C 解压目录（./mytest）
-	查看压缩包中有哪些文件
-	tar -tvf test.tar
-	rar工具
-	使用前需要安装 rar 工具
-	sudo apt-get install rar
-	压缩：
-	命令： rar a -r 要压缩的文件(含文件或者目录)
-	压缩目录需要使用参数：-r
-rar a -r my aa bb dir  ----将aa bb dir压缩到my.rar文件中
-	打包的生成的新文件不需要指定后缀
-	解压缩：
-	命令：rar x xxx.rar 压缩目录
-rar x my.rar  ----将my.rar解压到当前目录
-	解压到指定目录, 直接指定解压目录即可
-	rar x xxx.rar目录
-rar x my.rar TAR  -----将my.rar解压到TAR目录下
-				注意：若解压目录不存在则会报错
-	zip工具
-	压缩：zip -r 压缩包名 要压缩的文件(含文件或目录)
-	压缩目录需要使用参数-r
-	使用该命令不需要指定压缩包后缀
-zip -r xxx file dir ---生成xxx.zip文件
-	解压缩：unzip压缩包名
-	解压缩到指定目录：添加参数 –d 解压目录
-	unzip xxx.zip -d /home/itcast/test/day1
-注意：解压目录若不存在则会创建．
+        <blockquote>
+<p>linux下主要目录介绍</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">	/bin: binary，二进制文件，可执行程序，shell命令
+	如: ls , rm , mv, cp等常用命令
+	/sbin: s是Super User的意思，这里存放的是系统管理员使用的系统管理程序。
+	如ifconfig, halt, shutdown, reboot等系统命令
+	/dev: device，在linux下一切皆文件
+	硬盘, 显卡, 显示器
+	字符设备文件、块设备文件
+	如: 在input目录下执行: sudo cat mouse0, 移动鼠标会显示有输入.
+	/lib: linux运行的时候需要加载的一些动态库
+	如: libc.so、libpthread.so等
+	/mnt: 手动的挂载目录, 如U盘等
+	/media: 外设的自动挂载目录, 如光驱等。
+	/root: linux的超级用户root的家目录
+	/usr: unix system resource--类似于WINDOWS的programe files目录
+	include目录里存放头文件, 如: stdio.h、stdlib.h、string.h、pthread.h
+	games目录下的小游戏-如: sl小火车游戏
+	/etc: 存放配置文件
+	/etc/passwd
+	man 5 passwd可以查看passwd文件的格式信息
+	/etc/group
+	man 5 group可以查看group文件的格式信息
+	/etc/profile
+	系统的配置文件, 修改该文件会影响这个系统下面的所有的用户
+	/opt: 安装第三方应用程序
+	比如安装oracle数据库可以在这个目录下
+	/home: linux操作系统所有用户的家目录
+	用户家目录：(宿主目录或者主目录）
+	/home/itcast
+	/tmp: 存放临时文件
+	新建在这个目录下的文件会在系统重启后自动清除
 
 </code></pre></div>
     </div>
@@ -314,7 +231,7 @@ zip -r xxx file dir ---生成xxx.zip文件
             
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/>https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</span>
+                    <a href=https://lnran.com/post/linux%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/>https://lnran.com/post/linux%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/</span>
             </p>
             
             
@@ -343,10 +260,8 @@ zip -r xxx file dir ---生成xxx.zip文件
 
     <div class="post-nav">
         
-        <a href="https://lnran.com/post/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="prev" rel="prev" title="直接插入排序"><i class="iconfont icon-left"></i>&nbsp;直接插入排序</a>
+        <a href="https://lnran.com/post/linux%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/" class="prev" rel="prev" title="Linux压缩解压缩命令"><i class="iconfont icon-left"></i>&nbsp;Linux压缩解压缩命令</a>
         
-        
-        <a href="https://lnran.com/post/linux%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/" class="next" rel="next" title="Linux目录介绍">Linux目录介绍&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
