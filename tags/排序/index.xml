@@ -6,7 +6,16 @@
     <description>Recent content in 排序 on lnran`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 29 Oct 2020 15:45:52 +0800</lastBuildDate><atom:link href="https://lnran.com/tags/%E6%8E%92%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Dec 2020 14:01:08 +0800</lastBuildDate><atom:link href="https://lnran.com/tags/%E6%8E%92%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>快速排序（图文）</title>
+      <link>https://lnran.com/post/quick_sort/</link>
+      <pubDate>Mon, 21 Dec 2020 14:01:08 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/quick_sort/</guid>
+      <description>基本思想：与归并排序一样，快速排序也采用了分治法。将原问题分解成几个规模较小但类似于原问题的子问题，递归地求解这些子问题，然后再合并这些子问</description>
+    </item>
+    
     <item>
       <title>直接插入排序</title>
       <link>https://lnran.com/post/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
