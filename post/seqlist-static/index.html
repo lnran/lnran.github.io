@@ -56,7 +56,7 @@
     "datePublished": "2020-12-21 15:45:52 \u002b0800 CST",
     "dateModified" : "2020-12-21 15:45:52 \u002b0800 CST",
     "url" : "https:\/\/lnran.com\/post\/seqlist-static\/",
-    "wordCount" : "922",
+    "wordCount" : "999",
     "keywords" : [ "线性表", "lnran`s Blog"]
 }
 </script>
@@ -163,7 +163,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">922 words</span>
+                <span class="post-word-count">999 words</span>
         </div>
     </header>
 
@@ -220,11 +220,24 @@
 <blockquote>
 <p>void DestroyList(SeqList *L);</p>
 </blockquote>
-<h2 id="静态分配一维数组">静态分配一维数组</h2>
+<h2 id="如静态分配一维数组则需添加">如静态分配一维数组则需添加:</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>{
 	ElemType data[MAXSIZE]; <span style="color:#75715e">//****静态分配为一维数组 *********
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> length;
 }SeqList;
+</code></pre></div><h2 id="如动态分配一维数组则需添加">如动态分配一维数组则需添加:</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>{
+	ElemType <span style="color:#f92672">*</span>data; 
+	<span style="color:#66d9ef">int</span> Maxsize;	<span style="color:#75715e">// 最大容量
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> length;	<span style="color:#75715e">// 当前个数 
+</span><span style="color:#75715e"></span>}SeqList;
+</code></pre></div><h4 id="另外在initlist函数中需要作出以下改变">另外在InitList函数中需要作出以下改变:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">InitList</span>(SeqList <span style="color:#f92672">*</span>L)
+{
+    L<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> (ElemType <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(ElemType)<span style="color:#f92672">*</span>InitSize); 
+    L<span style="color:#f92672">-&gt;</span>length <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    L<span style="color:#f92672">-&gt;</span>Maxsize <span style="color:#f92672">=</span> InitSize;
+}
 </code></pre></div><h2 id="完整代码">完整代码</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">//顺序表的实现 - 静态方法
 </span><span style="color:#75715e">//by Ingran
