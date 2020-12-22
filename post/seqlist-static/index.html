@@ -56,7 +56,7 @@
     "datePublished": "2020-12-21 15:45:52 \u002b0800 CST",
     "dateModified" : "2020-12-21 15:45:52 \u002b0800 CST",
     "url" : "https:\/\/lnran.com\/post\/seqlist-static\/",
-    "wordCount" : "999",
+    "wordCount" : "1027",
     "keywords" : [ "线性表", "lnran`s Blog"]
 }
 </script>
@@ -163,7 +163,7 @@
                         
                         
                 </span>
-                <span class="post-word-count">999 words</span>
+                <span class="post-word-count">1027 words</span>
         </div>
     </header>
 
@@ -216,27 +216,47 @@
 <blockquote>
 <p>bool Empty(SeqList L);</p>
 </blockquote>
-<h3 id="销魂操作销毁线性表并释放线性表l所占用的内存空间-因为此顺序表为静态分配--故不用销毁">销魂操作，销毁线性表，并释放线性表L所占用的内存空间 因为此顺序表为静态分配  故不用销毁</h3>
-<blockquote>
-<p>void DestroyList(SeqList *L);</p>
-</blockquote>
 <h2 id="如静态分配一维数组则需添加">如静态分配一维数组则需添加:</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>{
-	ElemType data[MAXSIZE]; <span style="color:#75715e">//****静态分配为一维数组 *********
+	ElemType data[MAXSIZE]; <span style="color:#75715e">//静态一维数组
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> length;
 }SeqList;
 </code></pre></div><h2 id="如动态分配一维数组则需添加">如动态分配一维数组则需添加:</h2>
+<h4 id="结构体内有一个elemtype类型的指针指向动态开辟的空间另外增加了一项最大容量maxsize用来动态扩容">结构体内有一个ElemType类型的指针，指向动态开辟的空间；另外增加了一项最大容量Maxsize，用来动态扩容</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>{
-	ElemType <span style="color:#f92672">*</span>data; 
-	<span style="color:#66d9ef">int</span> Maxsize;	<span style="color:#75715e">// 最大容量
+	ElemType <span style="color:#f92672">*</span>data; <span style="color:#75715e">// 动态一维数组
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> Maxsize;	<span style="color:#75715e">// 最大容量
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> length;	<span style="color:#75715e">// 当前个数 
 </span><span style="color:#75715e"></span>}SeqList;
-</code></pre></div><h4 id="另外在initlist函数中需要作出以下改变">另外在InitList函数中需要作出以下改变:</h4>
+</code></pre></div><h4 id="新增动态扩容函数">新增动态扩容函数</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">IncreaseSize</span>(SeqList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len);
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">IncreaseSize</span>(SeqList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len)
+{
+    ElemType <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>data;
+    L<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> (ElemType <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>)<span style="color:#f92672">*</span>(L<span style="color:#f92672">-&gt;</span>Maxsize<span style="color:#f92672">+</span>len)); 
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>L<span style="color:#f92672">-&gt;</span>length;i<span style="color:#f92672">++</span>)
+        L<span style="color:#f92672">-&gt;</span>data[i] <span style="color:#f92672">=</span>  p[i];
+    L<span style="color:#f92672">-&gt;</span>Maxsize <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>Maxsize <span style="color:#f92672">+</span> len;
+    free(p);
+}
+</code></pre></div><h4 id="在initlist初始化函数中需要申请一片堆内存用来存储数据">在InitList初始化函数中需要申请一片堆内存用来存储数据</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">InitList</span>(SeqList <span style="color:#f92672">*</span>L)
 {
     L<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> (ElemType <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(ElemType)<span style="color:#f92672">*</span>InitSize); 
     L<span style="color:#f92672">-&gt;</span>length <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
     L<span style="color:#f92672">-&gt;</span>Maxsize <span style="color:#f92672">=</span> InitSize;
+}
+</code></pre></div><h4 id="另外申请的堆内存需要手动释放需添加销毁函数">另外申请的堆内存需要手动释放，需添加销毁函数</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DestroyList</span>(SeqList <span style="color:#f92672">*</span>L);
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DestroyList</span>(SeqList <span style="color:#f92672">*</span>L)
+{
+    <span style="color:#66d9ef">if</span>(L<span style="color:#f92672">!=</span>NULL)
+    {
+        free(L);
+        L <span style="color:#f92672">=</span> NULL;
+    }
 }
 </code></pre></div><h2 id="完整代码">完整代码</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">//顺序表的实现 - 静态方法
@@ -275,11 +295,7 @@
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintList</span>(SeqList L);
 
 <span style="color:#75715e">// 判空操作，若L为空表，则返回true，否则返回false
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">Empty</span>(SeqList L);
-
-<span style="color:#75715e">// 销魂操作，销毁线性表，并释放线性表L所占用的内存空间  //顺序表为静态分配  不用销毁
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DestroyList</span>(SeqList <span style="color:#f92672">*</span>L); 
- 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">Empty</span>(SeqList L); 
 
 
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
@@ -369,11 +385,6 @@
 		<span style="color:#66d9ef">return</span> true;
 	<span style="color:#66d9ef">return</span> false;
 }
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DestroyList</span>(SeqList <span style="color:#f92672">*</span>L)
-{
-	<span style="color:#75715e">//顺序表为静态分配  不用销毁
-</span><span style="color:#75715e"></span>}
 
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintList</span>(SeqList L)
 {
