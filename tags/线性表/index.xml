@@ -8,12 +8,12 @@
     <language>zh-cn</language>
     <lastBuildDate>Mon, 21 Dec 2020 15:45:52 +0800</lastBuildDate><atom:link href="https://lnran.com/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>线性表之顺序表</title>
+      <title>线性表的顺序存储之顺序表</title>
       <link>https://lnran.com/post/seqlist-static/</link>
       <pubDate>Mon, 21 Dec 2020 15:45:52 +0800</pubDate>
       
       <guid>https://lnran.com/post/seqlist-static/</guid>
-      <description>线性表的顺序存储又称为顺序表 线性表的基本操作 初始化表。构造空的线性表 void InitList(SeqList *L); 求表长，返回线性表L的长度，即L中数据元素的个数 int Length(SeqList L); 按值查找操作</description>
+      <description>线性表的基本操作 初始化表。构造空的线性表 void InitList(SeqList *L); 求表长，返回线性表L的长度，即L中数据元素的个数 int Length(SeqList L); 按值查找操作，在表L中查找具有给定关键字</description>
     </item>
     
   </channel>
