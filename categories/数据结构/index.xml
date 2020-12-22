@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据结构 on lnran`s Blog</title>
+    <link>https://lnran.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 数据结构 on lnran`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 21 Dec 2020 15:45:52 +0800</lastBuildDate><atom:link href="https://lnran.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>线性表之顺序表</title>
+      <link>https://lnran.com/post/seqlist-static/</link>
+      <pubDate>Mon, 21 Dec 2020 15:45:52 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/seqlist-static/</guid>
+      <description>线性表的顺序存储又称为顺序表 线性表的基本操作 初始化表。构造空的线性表 void InitList(SeqList *L); 求表长，返回线性表L的长度，即L中数据元素的个数 int Length(SeqList L); 按值查找操作</description>
+    </item>
+    
+  </channel>
+</rss>
