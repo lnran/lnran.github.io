@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="lnran">
+    
+    
+    
+    <link rel="prev" href="https://lnran.com/post/seqlist-static/" />
+    
+    <link rel="canonical" href="https://lnran.com/post/linklisthead/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+        
+        
+            线性表的链式存储方式之链表 | lnran`s Blog
+        
+    </title>
+    <meta name="title" content="线性表的链式存储方式之链表 | lnran`s Blog">
+    
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/lnran.com\/"
+    },
+    "articleSection" : "post",
+    "name" : "线性表的链式存储方式之链表",
+    "headline" : "线性表的链式存储方式之链表",
+    "description" : "线性表的基本操作 初始化表。构造一个只包含头结点的链表 bool InitList(LinkList *L); 求表长，返回线性表L的长度，即L中数据元素的个数 int Length(LinkList L); 按值查找操作，在表L中查找具",
+    "inLanguage" : "zh-cn",
+    "author" : "lnran",
+    "creator" : "lnran",
+    "publisher": "lnran",
+    "accountablePerson" : "lnran",
+    "copyrightHolder" : "lnran",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-12-27 17:21:22 \u002b0800 CST",
+    "dateModified" : "2020-12-27 17:21:22 \u002b0800 CST",
+    "url" : "https:\/\/lnran.com\/post\/linklisthead\/",
+    "wordCount" : "2425",
+    "keywords" : [ "线性表", "lnran`s Blog"]
+}
+</script>
+
+  </head>
+    <body class="">
+        <div class="wrapper">
+            <nav class="navbar">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+    <div class="container">
+        
+            <div class="navbar-header header-back2home-logo">
+                <span class="logo_mark" >>$</span>
+                <a href="https://lnran.com/">
+                    <span class="logo_text" >cd /home/</span>
+                    <span class="logo_cursor" ></span>
+                </a>
+            </div>
+        
+        <div class="navbar-right">
+                
+                <span class="menu">
+                
+                <a class="menu-item" href="/post/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <span class="divide"></span>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a>
+                </span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <progress class="content_progress" max="0" value="0"></progress>
+    
+     <div class="container">
+        <div class="navbar">
+            <div class="navbar-header header-logo">
+                    <a href="https://lnran.com/">lnran`s Blog</a>
+            </div>
+            <div class="navbar-right">
+                <div><a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-dark-mode"></i></a></div>
+                <div class="menu-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                <nav class="mb-md">
+                    
+                    
+                        <a class="menu-item" href="/post/" title="">
+                            <h3>Blog</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/categories/" title="">
+                            <h3>Categories</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/tags/" title="">
+                            <h3>Tags</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                        <a class="menu-item" href="/about/" title="">
+                            <h3>About</h3>
+                            <div class="menu-active"></div>
+                        </a>
+                    
+                </nav>
+        </div>
+    </div>
+</nav>
+            <main class="main">
+                <div class="container">
+                    
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">线性表的链式存储方式之链表</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://lnran.com/" rel="author">lnran</a> with ♥
+                <span class="post-time">
+                on <time datetime=2020-12-27 itemprop="datePublished">December 27, 2020</time>
+                </span>
+                in
+                
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                        
+                        
+                          <a href="https://lnran.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"> 数据结构, </a>
+                        
+                        
+                </span>
+                <span class="post-word-count">2425 words</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        
+
+        
+        
+
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="线性表的基本操作">线性表的基本操作</h2>
+<h4 id="初始化表构造一个只包含头结点的链表">初始化表。构造一个只包含头结点的链表</h4>
+<ul>
+<li>bool InitList(LinkList *L);</li>
+</ul>
+<h4 id="求表长返回线性表l的长度即l中数据元素的个数">求表长，返回线性表L的长度，即L中数据元素的个数</h4>
+<ul>
+<li>int Length(LinkList L);</li>
+</ul>
+<h4 id="按值查找操作在表l中查找具有给定关键字值的元素">按值查找操作，在表L中查找具有给定关键字值的元素</h4>
+<ul>
+<li>int LocateElem(LinkList L,ElemType e);</li>
+</ul>
+<h4 id="按位查找操作获取表l中第i个位置的元素">按位查找操作，获取表L中第i个位置的元素</h4>
+<ul>
+<li>LNode* GetElem(LinkList L,int i);</li>
+</ul>
+<h4 id="插入操作在表l中的第i个位置上插入指定元素e">插入操作,在表L中的第i个位置上插入指定元素e</h4>
+<ul>
+<li>bool ListInsert(LinkList *L,int i,ElemType e);</li>
+</ul>
+<h4 id="删除操作在删除表l中第i个位置的元素并用e返回删除元素的值">删除操作，在删除表L中第i个位置的元素，并用e返回删除元素的值</h4>
+<ul>
+<li>bool ListDelete(LinkList *L,int i,ElemType *e);</li>
+</ul>
+<h4 id="后插操作在p结点之后插入元素e">后插操作，在p结点之后插入元素e</h4>
+<ul>
+<li>bool InsertNextNode(LNode *p,ElemType e);</li>
+</ul>
+<h4 id="输出操作按前后顺序输出线性表l的所有元素值">输出操作，按前后顺序输出线性表L的所有元素值</h4>
+<ul>
+<li>void PrintList(LinkList L);</li>
+</ul>
+<h4 id="判空操作若l为空表则返回true否则返回false">判空操作，若L为空表，则返回true，否则返回false</h4>
+<ul>
+<li>bool Empty(LinkList L);</li>
+</ul>
+<h4 id="销魂操作销毁线性表并释放线性表l所占用的内存空间">销魂操作，销毁线性表，并释放线性表L所占用的内存空间</h4>
+<ul>
+<li>void DestroyList(LinkList *L);</li>
+</ul>
+<h2 id="对于链表又增加了包括逆转链表在内的几个额外操作">对于链表，又增加了包括逆转链表在内的几个额外操作</h2>
+<h4 id="头插法建立长度为len的单链表">头插法建立长度为len的单链表</h4>
+<ul>
+<li>bool List_HeadInsert(LinkList *L,int len);</li>
+</ul>
+<h4 id="尾插法建立长度为len的单链表">尾插法建立长度为len的单链表</h4>
+<ul>
+<li>bool List_TailInsert(LinkList *L,int len);</li>
+</ul>
+<h4 id="原地逆转链表">原地逆转链表</h4>
+<ul>
+<li>bool List_Reverse(LinkList *L);</li>
+</ul>
+<h4 id="逆转链表到一个新的链表中">逆转链表到一个新的链表中</h4>
+<ul>
+<li>LinkList List_ReverseToList(LinkList L);</li>
+</ul>
+<h2 id="有头结点链表的实现">有头结点链表的实现</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">//线性表的链式存储
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//链表的实现(有头结点)
+</span><span style="color:#75715e">//by Ingran
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define ElemType int
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">LNode</span>{
+	ElemType data; 
+	<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">LNode</span> <span style="color:#f92672">*</span>next;
+}LNode,<span style="color:#f92672">*</span>LinkList;
+
+
+<span style="color:#75715e">// 初始化表。构造一个只包含头结点的链表 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">InitList</span>(LinkList <span style="color:#f92672">*</span>L);
+
+<span style="color:#75715e">// 求表长，返回线性表L的长度，即L中数据元素的个数
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">Length</span>(LinkList L);
+
+<span style="color:#75715e">// 按值查找操作，在表L中查找具有给定关键字值的元素
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">LocateElem</span>(LinkList L,ElemType e);
+
+<span style="color:#75715e">// 按位查找操作，获取表L中第i个位置的元素
+</span><span style="color:#75715e"></span>LNode<span style="color:#f92672">*</span> <span style="color:#a6e22e">GetElem</span>(LinkList L,<span style="color:#66d9ef">int</span> i);
+
+<span style="color:#75715e">// 插入操作,在表L中的第i个位置上插入指定元素e
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">ListInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> i,ElemType e);
+
+<span style="color:#75715e">// 删除操作，在删除表L中第i个位置的元素，并用e返回删除元素的值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">ListDelete</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> i,ElemType <span style="color:#f92672">*</span>e);
+
+<span style="color:#75715e">//后插操作，在p结点之后插入元素e
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">InsertNextNode</span>(LNode <span style="color:#f92672">*</span>p,ElemType e); 
+
+<span style="color:#75715e">// 输出操作，按前后顺序输出线性表L的所有元素值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintList</span>(LinkList L);
+
+<span style="color:#75715e">// 判空操作，若L为空表，则返回true，否则返回false
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">Empty</span>(LinkList L);
+
+<span style="color:#75715e">// 销魂操作，销毁线性表，并释放线性表L所占用的内存空间
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DestroyList</span>(LinkList <span style="color:#f92672">*</span>L); 
+
+<span style="color:#75715e">// 头插法建立长度为len的单链表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_HeadInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len);
+
+<span style="color:#75715e">// 尾插法建立长度为len的单链表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_TailInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len);
+
+<span style="color:#75715e">// 原地逆转链表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_Reverse</span>(LinkList <span style="color:#f92672">*</span>L); 
+
+<span style="color:#75715e">// 逆转链表到一个新的链表中
+</span><span style="color:#75715e"></span>LinkList <span style="color:#a6e22e">List_ReverseToList</span>(LinkList L);
+
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+	LinkList pHead;
+	InitList(<span style="color:#f92672">&amp;</span>pHead);
+	ListInsert(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">11</span>);
+	ListInsert(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">22</span>);
+	ListInsert(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">33</span>);
+	ListInsert(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">44</span>);
+	PrintList(pHead);
+	
+	ElemType e<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	ListDelete(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">4</span>,<span style="color:#f92672">&amp;</span>e);
+	PrintList(pHead);
+	ListDelete(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">4</span>,<span style="color:#f92672">&amp;</span>e);
+	PrintList(pHead);
+	
+	<span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> LocateElem(pHead,<span style="color:#ae81ff">6</span>);
+	printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,n);
+	
+	LinkList L;
+	List_HeadInsert(<span style="color:#f92672">&amp;</span>L,<span style="color:#ae81ff">3</span>);
+	PrintList(L);
+	
+	LinkList L1;
+	List_TailInsert(<span style="color:#f92672">&amp;</span>L1,<span style="color:#ae81ff">3</span>);
+	PrintList(L1);
+	
+	List_Reverse(<span style="color:#f92672">&amp;</span>L1);
+	PrintList(L1);
+	
+	LinkList L2;
+	L2 <span style="color:#f92672">=</span> List_ReverseToList(L1);
+	PrintList(L2);
+	
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+} 
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">InitList</span>(LinkList <span style="color:#f92672">*</span>L)
+{
+	<span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	<span style="color:#66d9ef">if</span>(L<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+	<span style="color:#66d9ef">return</span> true;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">Length</span>(LinkList L)
+{
+	<span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>next;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL)
+	{
+		n<span style="color:#f92672">++</span>;
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+	}
+	<span style="color:#66d9ef">return</span> n;	
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">ListInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> i,ElemType e)
+{
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span>){
+		<span style="color:#66d9ef">return</span> false;
+	}
+	<span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	LNode <span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>(<span style="color:#f92672">*</span>L);
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL <span style="color:#f92672">&amp;&amp;</span> k<span style="color:#f92672">&lt;</span>i)
+	{
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		k<span style="color:#f92672">++</span>;
+	}
+	
+	<span style="color:#66d9ef">return</span> InsertNextNode(p,e);
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">ListDelete</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> i,ElemType <span style="color:#f92672">*</span>e)
+{
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span>)
+		<span style="color:#66d9ef">return</span> false;
+	
+	<span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L);
+	<span style="color:#75715e">//p为要删除结点的上一个结点 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL <span style="color:#f92672">&amp;&amp;</span> k<span style="color:#f92672">&lt;</span>i)
+	{
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		k<span style="color:#f92672">++</span>;
+	}
+	
+	<span style="color:#75715e">//i值不存在 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	<span style="color:#75715e">//要删除的结点为空 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	LNode <span style="color:#f92672">*</span>q <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+	<span style="color:#f92672">*</span>e <span style="color:#f92672">=</span> q<span style="color:#f92672">-&gt;</span>data;
+	p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> q<span style="color:#f92672">-&gt;</span>next;
+	free(q);
+	
+	
+	<span style="color:#66d9ef">return</span> true;
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">InsertNextNode</span>(LNode <span style="color:#f92672">*</span>p,ElemType e)
+{
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	s<span style="color:#f92672">-&gt;</span>data<span style="color:#f92672">=</span>e;
+	s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+	p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s;
+	
+	<span style="color:#66d9ef">return</span> true;
+}
+ 
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">LocateElem</span>(LinkList L,ElemType e)
+{
+	<span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>next;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL <span style="color:#f92672">&amp;&amp;</span> p<span style="color:#f92672">-&gt;</span>data<span style="color:#f92672">!=</span>e)
+	{
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		n<span style="color:#f92672">++</span>;
+	}
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">return</span> n;
+}
+
+LNode<span style="color:#f92672">*</span> <span style="color:#a6e22e">GetElem</span>(LinkList L,<span style="color:#66d9ef">int</span> i)
+{
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>)
+		<span style="color:#66d9ef">return</span> NULL;
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+		<span style="color:#66d9ef">return</span> L;
+	
+	<span style="color:#75715e">//排除头结点 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>next;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL <span style="color:#f92672">&amp;&amp;</span> j<span style="color:#f92672">!=</span>i)
+	{
+		p <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+		j<span style="color:#f92672">++</span>;
+	}
+	<span style="color:#66d9ef">return</span> p;
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">Empty</span>(LinkList L)
+{
+	<span style="color:#66d9ef">return</span> (L<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">==</span>NULL);
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DestroyList</span>(LinkList <span style="color:#f92672">*</span>L)
+{
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L);
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL)
+	{
+		LNode <span style="color:#f92672">*</span>q <span style="color:#f92672">=</span> p;
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		free(q);
+	}
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintList</span>(LinkList L)
+{
+	<span style="color:#75715e">//排除头结点 
+</span><span style="color:#75715e"></span>	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>next;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL)
+	{
+		printf(<span style="color:#e6db74">&#34;%d &#34;</span>,p<span style="color:#f92672">-&gt;</span>data);
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+	}
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_HeadInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len)
+{
+	<span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> (LNode <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	<span style="color:#66d9ef">if</span>(<span style="color:#f92672">*</span>L<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	
+	<span style="color:#75715e">//头结点
+</span><span style="color:#75715e"></span>	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+	
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>L;
+	
+	printf(<span style="color:#e6db74">&#34;头插法建立链表</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,len);
+	printf(<span style="color:#e6db74">&#34;请输入%d个整数:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,len);
+	<span style="color:#66d9ef">while</span>(len<span style="color:#f92672">--</span>)
+	{
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+		<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+			<span style="color:#66d9ef">return</span> false;
+		<span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+		scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>k);
+		s<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> k;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+		p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s;
+	}
+	<span style="color:#66d9ef">return</span> true;
+} 
+ 
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_TailInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len)
+{
+	<span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	<span style="color:#66d9ef">if</span>(<span style="color:#f92672">*</span>L<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	
+	<span style="color:#75715e">//头结点
+</span><span style="color:#75715e"></span>	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+	
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>L;
+	
+	printf(<span style="color:#e6db74">&#34;尾插法建立链表</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74">&#34;请输入长度为%d的整数:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,len);
+	<span style="color:#66d9ef">while</span>(len<span style="color:#f92672">--</span>)
+	{
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+		<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+			<span style="color:#66d9ef">return</span> false;
+		<span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+		scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>k);
+		s<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> k;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+		p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s;
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+	}
+	
+	<span style="color:#66d9ef">return</span> true;
+}
+ 
+ 
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_Reverse</span>(LinkList <span style="color:#f92672">*</span>L)
+{
+	<span style="color:#75715e">//空链表直接返回 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>(<span style="color:#f92672">*</span>L<span style="color:#f92672">==</span>NULL <span style="color:#f92672">||</span> (<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">==</span> NULL)
+	{
+		printf(<span style="color:#e6db74">&#34;kong&#34;</span>);
+		<span style="color:#66d9ef">return</span> false;
+	}
+		
+	<span style="color:#75715e">//跳过头结点 
+</span><span style="color:#75715e"></span>	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next;	
+	
+	<span style="color:#75715e">//逆转过程中,P指针位置不变化 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">!=</span>NULL)
+	{
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+		p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s<span style="color:#f92672">-&gt;</span>next;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next;
+		(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s;
+	}
+	
+	<span style="color:#66d9ef">return</span> true;
+}
+ 
+LinkList <span style="color:#a6e22e">List_ReverseToList</span>(LinkList L)
+{
+	<span style="color:#75715e">//空链表直接返回 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>(L<span style="color:#f92672">==</span>NULL <span style="color:#f92672">||</span> L<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> NULL;
+	
+	<span style="color:#75715e">//创建头结点 
+</span><span style="color:#75715e"></span>	LNode <span style="color:#f92672">*</span>newlist <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	newlist<span style="color:#f92672">-&gt;</span>data<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>;
+	newlist<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">=</span>NULL;
+	
+	<span style="color:#75715e">//指向原始链表的指针(跳过头结点) 
+</span><span style="color:#75715e"></span>	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>next;
+	
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL)
+	{
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+		<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+			<span style="color:#66d9ef">return</span> NULL; 
+		s<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>data;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> newlist<span style="color:#f92672">-&gt;</span>next;
+		
+		newlist<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s;		
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+	}
+	
+	<span style="color:#66d9ef">return</span> newlist;
+}
+ 
+</code></pre></div><h2 id="无头结点链表的实现">无头结点链表的实现</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">//线性表的链式存储
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//链表的实现(无头结点)
+</span><span style="color:#75715e">//by Ingran
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define ElemType int
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">LNode</span>{
+	ElemType data; 
+	<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">LNode</span> <span style="color:#f92672">*</span>next;
+}LNode,<span style="color:#f92672">*</span>LinkList;
+
+
+<span style="color:#75715e">// 初始化表。构造空链表 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">InitList</span>(LinkList <span style="color:#f92672">*</span>L);
+
+<span style="color:#75715e">// 求表长，返回链表的长度 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">Length</span>(LinkList L);
+
+<span style="color:#75715e">// 按值查找操作，在表L中查找具有给定关键字值的元素
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">LocateElem</span>(LinkList L,ElemType e);
+
+<span style="color:#75715e">// 按位查找操作，获取表L中第i个位置的元素
+</span><span style="color:#75715e"></span>LNode<span style="color:#f92672">*</span> <span style="color:#a6e22e">GetElem</span>(LinkList L,<span style="color:#66d9ef">int</span> i);
+
+<span style="color:#75715e">// 插入操作,在表L中的第i个位置上插入指定元素e
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">ListInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> i,ElemType e);
+
+<span style="color:#75715e">// 删除操作，在删除表L中第i个位置的元素，并用e返回删除元素的值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">ListDelete</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> i,ElemType <span style="color:#f92672">*</span>e);
+
+<span style="color:#75715e">//后插操作，在p结点之后插入元素e
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">InsertNextNode</span>(LNode <span style="color:#f92672">*</span>p,ElemType e); 
+
+<span style="color:#75715e">// 输出操作，按前后顺序输出线性表L的所有元素值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintList</span>(LinkList L);
+
+<span style="color:#75715e">// 判空操作，若L为空表，则返回true，否则返回false
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">Empty</span>(LinkList L);
+
+<span style="color:#75715e">// 销毁操作，销毁线性表，并释放线性表L所占用的内存空间
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DestroyList</span>(LinkList <span style="color:#f92672">*</span>L); 
+ 
+<span style="color:#75715e">// 头插法建立长度为len的单链表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_HeadInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len);
+
+<span style="color:#75715e">// 尾插法建立长度为len的单链表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_TailInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len);
+
+<span style="color:#75715e">// 原地逆转链表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_Reverse</span>(LinkList <span style="color:#f92672">*</span>L); 
+
+<span style="color:#75715e">// 逆转链表到一个新的链表中
+</span><span style="color:#75715e"></span>LinkList <span style="color:#a6e22e">List_ReverseToList</span>(LinkList L);
+
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+	LinkList pHead;
+	InitList(<span style="color:#f92672">&amp;</span>pHead);
+	ListInsert(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>);
+	ListInsert(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>);
+	ListInsert(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>);
+	PrintList(pHead);
+	
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> GetElem(pHead,<span style="color:#ae81ff">3</span>);
+	printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,p<span style="color:#f92672">-&gt;</span>data);
+	
+	
+	
+	ElemType e<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	ListDelete(<span style="color:#f92672">&amp;</span>pHead,<span style="color:#ae81ff">1</span>,<span style="color:#f92672">&amp;</span>e);
+	PrintList(pHead);
+	
+	<span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> Length(pHead); 
+	printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,n);
+	
+	DestroyList(<span style="color:#f92672">&amp;</span>pHead);
+	
+	LinkList L;
+	List_HeadInsert(<span style="color:#f92672">&amp;</span>L,<span style="color:#ae81ff">3</span>);
+	PrintList(L);
+	
+	LinkList L1;
+	List_TailInsert(<span style="color:#f92672">&amp;</span>L1,<span style="color:#ae81ff">1</span>);
+	<span style="color:#75715e">//PrintList(L1);
+</span><span style="color:#75715e"></span>	
+	List_Reverse(<span style="color:#f92672">&amp;</span>L1);
+	PrintList(L1);
+	
+	LinkList L2 <span style="color:#f92672">=</span> List_ReverseToList(L1);
+	PrintList(L2);
+	
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+} 
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">InitList</span>(LinkList <span style="color:#f92672">*</span>L)
+{
+	<span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> NULL;
+	<span style="color:#66d9ef">return</span> true;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">Length</span>(LinkList L)
+{
+	<span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL)
+	{
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		n<span style="color:#f92672">++</span>;
+	}
+	<span style="color:#66d9ef">return</span> n;	
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">ListInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> i,ElemType e)
+{
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span>){
+		<span style="color:#66d9ef">return</span> false;
+	}
+	
+	<span style="color:#75715e">//插到头结点需要特殊处理 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>)
+	{
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+		<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+			<span style="color:#66d9ef">return</span> false;
+		s<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> e;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L);
+		(<span style="color:#f92672">*</span>L) <span style="color:#f92672">=</span> s;
+		
+		<span style="color:#66d9ef">return</span> true;
+	}
+	
+	LNode <span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>(<span style="color:#f92672">*</span>L);
+	<span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL <span style="color:#f92672">&amp;&amp;</span> k<span style="color:#f92672">&lt;</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	{
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		k<span style="color:#f92672">++</span>;
+	}
+	
+	<span style="color:#66d9ef">return</span> InsertNextNode(p,e);
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">ListDelete</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> i,ElemType <span style="color:#f92672">*</span>e)
+{
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span>)
+		<span style="color:#66d9ef">return</span> false;
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>)
+	{
+		LNode <span style="color:#f92672">*</span>q <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L);
+		(<span style="color:#f92672">*</span>L) <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next;
+		free(q);
+		<span style="color:#66d9ef">return</span> true;
+	} 
+	
+	<span style="color:#66d9ef">int</span> n<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	LNode <span style="color:#f92672">*</span>p<span style="color:#f92672">=</span>(<span style="color:#f92672">*</span>L);
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL <span style="color:#f92672">&amp;&amp;</span> n<span style="color:#f92672">&lt;</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	{
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		n<span style="color:#f92672">++</span>;
+	}
+	
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">==</span>NULL)
+	{
+		<span style="color:#66d9ef">return</span> false;
+	}
+	
+	LNode <span style="color:#f92672">*</span>q <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+	p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> q<span style="color:#f92672">-&gt;</span>next;
+	free(q);
+	
+	
+	<span style="color:#66d9ef">return</span> true;
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">InsertNextNode</span>(LNode <span style="color:#f92672">*</span>p,ElemType e)
+{
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	s<span style="color:#f92672">-&gt;</span>data<span style="color:#f92672">=</span>e;
+	s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+	p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s;
+	
+	<span style="color:#66d9ef">return</span> true;
+}
+ 
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">LocateElem</span>(LinkList L,ElemType e)
+{
+	<span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL <span style="color:#f92672">&amp;&amp;</span> p<span style="color:#f92672">-&gt;</span>data<span style="color:#f92672">!=</span>e)
+	{
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		n<span style="color:#f92672">++</span>;
+	}
+	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">return</span> n;
+}
+
+LNode<span style="color:#f92672">*</span> <span style="color:#a6e22e">GetElem</span>(LinkList L,<span style="color:#66d9ef">int</span> i)
+{
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>)
+		<span style="color:#66d9ef">return</span> NULL;
+	<span style="color:#66d9ef">if</span>(i<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+		<span style="color:#66d9ef">return</span> L;
+	
+	<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL <span style="color:#f92672">&amp;&amp;</span> j<span style="color:#f92672">&lt;</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	{
+		p <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+		j<span style="color:#f92672">++</span>;
+	}
+	<span style="color:#75715e">//i的值不合法 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> p;
+		
+	<span style="color:#66d9ef">return</span> p;
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">Empty</span>(LinkList L)
+{
+	<span style="color:#66d9ef">return</span> (L<span style="color:#f92672">==</span>NULL);
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">DestroyList</span>(LinkList <span style="color:#f92672">*</span>L)
+{
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L);
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL)
+	{
+		LNode <span style="color:#f92672">*</span>q <span style="color:#f92672">=</span> p;
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		free(q);
+	}
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PrintList</span>(LinkList L)
+{ 
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> L;
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL)
+	{
+		printf(<span style="color:#e6db74">&#34;%d &#34;</span>,p<span style="color:#f92672">-&gt;</span>data);
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+	}
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_HeadInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len)
+{
+	<span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> (LNode <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	<span style="color:#66d9ef">if</span>(<span style="color:#f92672">*</span>L<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	
+	
+	printf(<span style="color:#e6db74">&#34;请输入%d个整数:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,len); 
+	<span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>k);
+	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> k; <span style="color:#75715e">//第一个节点的值 
+</span><span style="color:#75715e"></span>	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+	
+	<span style="color:#66d9ef">while</span>(<span style="color:#f92672">--</span>len)
+	{
+		scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>k);
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+		<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+			<span style="color:#66d9ef">return</span> false;
+		s<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> k;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>L;
+		<span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> s;	
+	}
+	
+	
+	<span style="color:#66d9ef">return</span> true; 
+}
+
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_TailInsert</span>(LinkList <span style="color:#f92672">*</span>L,<span style="color:#66d9ef">int</span> len)
+{
+	<span style="color:#f92672">*</span>L <span style="color:#f92672">=</span> (LNode <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	<span style="color:#66d9ef">if</span>(<span style="color:#f92672">*</span>L<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+	
+	printf(<span style="color:#e6db74">&#34;请输入%d个整数:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,len);
+	<span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>k);		<span style="color:#75715e">//先给第一个结点赋值 
+</span><span style="color:#75715e"></span>	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> k;
+	(<span style="color:#f92672">*</span>L)<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+	
+	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>L;
+	<span style="color:#66d9ef">while</span>(<span style="color:#f92672">--</span>len)
+	{
+		scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>k);
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+		<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+			<span style="color:#66d9ef">return</span> false;
+		s<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> k;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+		p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s;
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		
+	}
+	
+	<span style="color:#66d9ef">return</span> true;
+}
+
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">List_Reverse</span>(LinkList <span style="color:#f92672">*</span>L)
+{	
+	<span style="color:#75715e">//无头结点
+</span><span style="color:#75715e"></span>	LNode <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>L;
+	<span style="color:#75715e">//空链表直接返回 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span>(p<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> false;
+
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">!=</span>NULL)
+	{
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>next;
+		p<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> s<span style="color:#f92672">-&gt;</span>next;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>L);
+		(<span style="color:#f92672">*</span>L) <span style="color:#f92672">=</span> s;
+	}
+	
+	<span style="color:#66d9ef">return</span> true;
+}
+
+LinkList <span style="color:#a6e22e">List_ReverseToList</span>(LinkList L)
+{
+	
+	<span style="color:#66d9ef">if</span>(L<span style="color:#f92672">==</span>NULL)
+		<span style="color:#66d9ef">return</span> NULL;
+
+	<span style="color:#75715e">//先添加第一个节点 
+</span><span style="color:#75715e"></span>	LinkList newlist<span style="color:#f92672">=</span>(LNode <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+	newlist<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>data;
+	newlist<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+	<span style="color:#75715e">//从第二个结点开始
+</span><span style="color:#75715e"></span>	LinkList p <span style="color:#f92672">=</span> L<span style="color:#f92672">-&gt;</span>next;
+	
+	<span style="color:#66d9ef">while</span>(p<span style="color:#f92672">!=</span>NULL)
+	{
+		LNode <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (LNode<span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(LNode));
+		<span style="color:#66d9ef">if</span>(s<span style="color:#f92672">==</span>NULL)
+			<span style="color:#66d9ef">return</span> NULL;
+			
+		s<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> p<span style="color:#f92672">-&gt;</span>data;
+		s<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> newlist;
+		
+		p<span style="color:#f92672">=</span>p<span style="color:#f92672">-&gt;</span>next;
+		newlist <span style="color:#f92672">=</span> s;
+	}
+	
+	<span style="color:#66d9ef">return</span> newlist;
+}
+
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>lnran </span>
+                </p>
+            
+
+            
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://lnran.com/post/linklisthead/>https://lnran.com/post/linklisthead/</span>
+            </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://lnran.com/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+                    #线性表</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://lnran.com/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://lnran.com/post/seqlist-static/" class="prev" rel="prev" title="线性表的顺序存储方式之顺序表"><i class="iconfont icon-left"></i>&nbsp;线性表的顺序存储方式之顺序表</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+            
+                <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.css">
+<script src="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+
+        clientID: '5bb7fdcfe237c6be3569',
+        clientSecret: '9cc29a61bdc7f9f9f15d7d6b91c379cf147acdf3',
+        repo: 'lnran.github.io',
+        owner: 'lnran',
+        admin: ['lnran'],
+        id: decodeURI(location.pathname), 
+        distractionFreeMode: false 
+    });
+    (function () {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+            return;
+        }
+        gitalk.render('gitalk-container');
+    })();
+</script>
+
+            
+        
+    </div>
+</article>
+                </div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i>
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://lnran.com/">lnran</a> | </span>
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/Mogeko/Mogege" target="_blank" rel="external nofollow">Mogege</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+<script defer src="/js/vendor_main.min.js"></script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script> pangu.spacingPage();</script>
+
+
+
+
+
+        </div>
+    </body>
+</html>

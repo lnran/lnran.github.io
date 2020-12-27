@@ -6,7 +6,16 @@
     <description>Recent content in Posts on lnran`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 21 Dec 2020 15:45:52 +0800</lastBuildDate><atom:link href="https://lnran.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Dec 2020 17:21:22 +0800</lastBuildDate><atom:link href="https://lnran.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>线性表的链式存储方式之链表</title>
+      <link>https://lnran.com/post/linklisthead/</link>
+      <pubDate>Sun, 27 Dec 2020 17:21:22 +0800</pubDate>
+      
+      <guid>https://lnran.com/post/linklisthead/</guid>
+      <description>线性表的基本操作 初始化表。构造一个只包含头结点的链表 bool InitList(LinkList *L); 求表长，返回线性表L的长度，即L中数据元素的个数 int Length(LinkList L); 按值查找操作，在表L中查找具</description>
+    </item>
+    
     <item>
       <title>线性表的顺序存储方式之顺序表</title>
       <link>https://lnran.com/post/seqlist-static/</link>
